@@ -1,4 +1,5 @@
-def part1(puzzle):
+def part1():
+    puzzle = open("day2.txt", "r")
     mreds = 12
     mgreens = 13
     mblues = 14
@@ -26,10 +27,11 @@ def part1(puzzle):
             sum_of_id += id
 
     print("Number of possible games: " + str(sum_of_id))
+    puzzle.close()
 
-def part2(puzzle):
-    sum_of_power = 0
+def part2():
     puzzle = open("day2.txt", "r")
+    sum_of_power = 0
     for line in puzzle:
         id, colors = line.strip().split(":")
         id = int(id.split()[1])
@@ -43,12 +45,11 @@ def part2(puzzle):
         sum_of_power += max_of_colors["red"] * max_of_colors["green"] * max_of_colors["blue"]
 
     print("Sum of powers: " + str(sum_of_power))
-
-def main():
-    puzzle = open("day2.txt", "r")
-    part1(puzzle)
-    part2(puzzle)
     puzzle.close()
+
+def main(): 
+    part1()
+    part2()
 
 if __name__ == '__main__':
     main()
